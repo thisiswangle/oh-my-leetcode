@@ -3,6 +3,12 @@ package s094_binary_tree_inorder_traversal;
 import java.util.ArrayList;
 import java.util.List;
 
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
 /**
  * Definition for binary tree
  * public class TreeNode {
