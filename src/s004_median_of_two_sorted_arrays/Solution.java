@@ -37,7 +37,7 @@ public class Solution {
         if (length % 2 == 0) {
             return (num[length / 2] + num[length / 2 - 1]) / 2.0;
         } else {
-            return num[length / 2] / 1.0;
+            return num[length / 2];
         }
     }
 
