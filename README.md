@@ -1,8 +1,9 @@
-# oh-my-leetcode
+# Solutions for Leetcode
 
 * [s001_two_sum](src/s001_two_sum/Solution.java)
 * [s002_add_two_numbers](src/s002_add_two_numbers/Solution.java)
 * [s003_longest_substring_without_repeating_characters](src/s003_longest_substring_without_repeating_characters/Solution.java)
+* [s004_median_of_two_sorted_arrays](src/s004_median_of_two_sorted_arrays/Solution.java)
 * [s015_3sum](src/s015_3sum/Solution.java)
 * [s018_4sum](src/s018_4sum/Solution.java)
 * [s036_valid_sudoku](src/s036_valid_sudoku/Solution.java)

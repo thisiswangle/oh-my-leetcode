@@ -2,9 +2,12 @@ package s004_median_of_two_sorted_arrays;
 
 import java.util.Arrays;
 
+// Best solution:
+// https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/284794/Java.-Faster-than-100.-2-ms.-O(min(log-m-log-n))-time-O(1)-space
 public class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 
+        // The last operation of merge sort
         // O(m+n)?
         int length = nums1.length + nums2.length;
         int[] num = new int[length];
