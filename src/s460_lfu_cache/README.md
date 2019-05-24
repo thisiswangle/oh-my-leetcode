@@ -1,4 +1,4 @@
-# #146 LRU Cache 解题思路
+# LeetCode #146 LRU Cache 解题思路
 
 ## 题目描述
 
@@ -34,6 +34,6 @@ cache.get(4);       // returns 4
 
 ## 代码实现
 
- [#146 Lru Cache](LRUCache.java)
+ [#146 Lru Cache](src/s146_lru_cache/LRUCache.java)
 
 
