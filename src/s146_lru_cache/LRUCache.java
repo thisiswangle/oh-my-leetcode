@@ -4,6 +4,56 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LRUCache {
+
+    private int capacity;
+
+    private int size = 0;
+
+    private LRUList list = new LRUList();
+
+    // Keep a index for all values
+    private Map<Integer, ListNode> map = new HashMap<Integer, ListNode>();
+
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public int get(int key) {
+        ListNode node = map.get(key);
+        if (node == null)
+            return -1;
+        else {
+            list.moveToHead(node);
+            return node.val;
+        }
+    }
+
+    public void set(int key, int value) {
+        ListNode node = map.get(key);
+        if (node == null) {
+            if (size == capacity) {
+                ListNode rmNode = list.removeFromTail();
+                map.remove(rmNode.key);
+
+                ListNode newNode = new ListNode(key, value);
+                list.insertToHead(newNode);
+                map.put(key, newNode);
+            } else if (size < capacity) {
+                size ++;
+                ListNode newNode = new ListNode(key, value);
+                list.insertToHead(newNode);
+                map.put(key, newNode);
+            }
+        } else {
+            node.val = value;
+            list.moveToHead(node);
+        }
+    }
+    @Override
+    public String toString() {
+        return list.toString();
+    }
+
     private static class ListNode {
         ListNode pre;
         ListNode next;
@@ -58,52 +108,5 @@ public class LRUCache {
             sb.append("}");
             return sb.toString();
         }
-    }
-
-    private int capacity;
-    private int size = 0;
-    private LRUList list = new LRUList();
-
-    // Keep a index for all values
-    private Map<Integer, ListNode> map = new HashMap<Integer, ListNode>();
-
-    public LRUCache(int capacity) {
-        this.capacity = capacity;
-    }
-
-    public int get(int key) {
-        ListNode node = map.get(key);
-        if (node == null)
-            return -1;
-        else {
-            list.moveToHead(node);
-            return node.val;
-        }
-    }
-
-    public void set(int key, int value) {
-        ListNode node = map.get(key);
-        if (node == null) {
-            if (size == capacity) {
-                ListNode rmNode = list.removeFromTail();
-                map.remove(rmNode.key);
-
-                ListNode newNode = new ListNode(key, value);
-                list.insertToHead(newNode);
-                map.put(key, newNode);
-            } else if (size < capacity) {
-                size ++;
-                ListNode newNode = new ListNode(key, value);
-                list.insertToHead(newNode);
-                map.put(key, newNode);
-            }
-        } else {
-            node.val = value;
-            list.moveToHead(node);
-        }
-    }
-    @Override
-    public String toString() {
-        return list.toString();
     }
 }
