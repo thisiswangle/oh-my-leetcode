@@ -28,7 +28,7 @@ public class LRUCache {
         }
     }
 
-    public void set(int key, int value) {
+    public void put(int key, int value) {
         ListNode node = map.get(key);
         if (node == null) {
             if (size == capacity) {
